@@ -23,7 +23,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   test "should get create" do
     assert_difference 'Comment.count',1 do
       content= "New Post"
-      post comments_path({title: content})
+      post comments_path({content: content})
     end
     created_comment= Comment.last
     assert_equal content, created_comment.content

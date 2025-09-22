@@ -10,10 +10,10 @@
  */
 
 .comment{
-    padding-left: 30px;
+    padding-left: 40px;
 }
 .response{
-    padding-left: 60px;
+    padding-left: 70px;
 }
 .button{
     background-color: darkseagreen;
@@ -40,6 +40,12 @@
     text-align: center;
 }
 .post{
-    padding-left: 20px;
-
+    padding-left: 10px;
+}
+.spanelement{
+    padding: 10px;
+}
+.commentcount{
+    display: flex;
+    justify-content: flex-start;
 }

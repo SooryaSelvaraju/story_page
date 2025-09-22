@@ -1,13 +1,22 @@
-<div class="button"><%= link_to "Create Story", new_story_path%></div>
+<div class="button"><%= link_to "Create Story", new_story_path %></div>
 
 <h1>List of Posts</h1>
 <div class="post">
-<% @stories.each do |story| %>
-  <h3><a href="<%= story.url %>" target=" _blank"><%= story['title'] %></a></h3>
+  <% @stories.each do |story| %>
+    <h3><a href="<%= story.url %>" target=" _blank"><%= story['title'] %></a></h3>
 
-  <h4><%= story.description %></h4>
-  <p class="like"><%= button_to "👍", story_path(story), method: :patch  %>  <span><%=story.upvotes %></span> Likes</p>
- <div class="button"><%= link_to "Show Comments", story_path(story)%></div>
+    <h4><%= story.description %></h4>
+    <div class="commentcount">
+      <div class="commentcount">
+        <span><%= button_to "👍", story_path(story), method: :patch %></span>
+        <span class="spanelement"><%= story.upvotes %> Likes</span>
+     </div>
+      <% story_id = story.id %>
+      <% count = Comment.where(story_id: story_id).count  %>
+      <div class="comment"> <p><%= count %> Comments</p></div>
+    </div>
 
-<% end %>
+    <div class="button"><%= link_to "Show Comments", story_path(story) %></div>
+
+  <% end %>
 </div>

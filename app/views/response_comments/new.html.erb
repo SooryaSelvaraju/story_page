@@ -1,0 +1,13 @@
+<h1>ResponseComments</h1>
+<%= form_with model: @response_comment, path: response_comments_path, method: :post do |f| %>
+  <%= f.hidden_field :comment_id, value: @comment.id %>
+  <div>
+    <label>Content</label>
+    <%= f.text_field :content %>
+  </div>
+  <div>
+    <label>User</label>
+    <%= f.text_field :user %>
+  </div>
+  <%= f.submit "Add Response Comment" %>
+<% end %>

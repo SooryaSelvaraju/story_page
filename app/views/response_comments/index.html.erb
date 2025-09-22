@@ -1,0 +1,6 @@
+<h1>ResponseComments</h1>
+
+<% @response_comments.each do |response| %>
+  <h3><%= response.user %></h3>
+  <h5><%= response.content %></h5>
+<% end %>

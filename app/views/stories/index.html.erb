@@ -1,0 +1,9 @@
+<%= link_to "Create Story", new_story_path %>
+
+<h1>List of Posts</h1>
+<% @stories.each do |story| %>
+  <h3><%= story.title %></h3>
+  <h4><%= story.description %></h4>
+  <p>upvotes</p>
+ <%= link_to "Show Comments", story_path(story)%>
+<% end %>

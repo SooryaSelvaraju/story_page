@@ -1,0 +1,7 @@
+<%= link_to "Home", stories_path %>
+<h1>Comments</h1>
+<% @comments.each do |comment| %>
+  <h2>Id: <%= comment.id %> <%= comment.user %></h2>
+  <h5><%= comment.content %></h5>
+  <%= link_to "Add Responsive Comment", new_response_comment_path(comment_id: comment.id) %>
+<% end %>

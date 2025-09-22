@@ -1,0 +1,13 @@
+<h1>Comments</h1>
+<%= form_with model: @comment, path: comments_path, method: :post do |f| %>
+  <%= f.hidden_field :story_id, value: @story.id %>
+  <div>
+    <label>Content</label>
+    <%= f.text_field :content %>
+  </div>
+  <div>
+    <label>User</label>
+    <%= f.text_field :user %>
+  </div>
+  <%= f.submit "Add Comment" %>
+<% end %>

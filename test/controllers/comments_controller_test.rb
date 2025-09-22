@@ -1,33 +1,33 @@
 require "test_helper"
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
+  @comment={
+    "user": "marredpally",
+    "content": "Don't rush to solutions",
+  }
   test "should get index" do
-    get comments_index_url
+    get comments_path
     assert_response :success
   end
 
   test "should get new" do
-    get comments_new_url
+    get new_comment_path
     assert_response :success
   end
 
   test "should get show" do
-    get comments_show_url
+    get comment_path(@comment)
     assert_response :success
   end
 
   test "should get create" do
-    get comments_create_url
+    assert_difference 'Comment.count',1 do
+      content= "New Post"
+      post comments_path({title: content})
+    end
+    created_comment= Comment.last
+    assert_equal content, created_comment.content
     assert_response :success
   end
 
-  test "should get edit" do
-    get comments_edit_url
-    assert_response :success
-  end
-
-  test "should get update" do
-    get comments_update_url
-    assert_response :success
-  end
 end

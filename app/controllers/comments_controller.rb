@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 
     @comment= Comment.create(comment_params)
     flash[:notice] = "Comment was successfully created."
-    redirect_to comment_path(@comment)
+    redirect_to stories_path
   end
 
   def edit

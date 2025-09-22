@@ -15,20 +15,13 @@ class StoriesController < ApplicationController
   end
 
   def create
+
     @story = Story.create(story_params)
     flash[:notice] = "Story was successfully created."
     redirect_to story_path(@story)
   end
 
-  def edit
-    @story= Story.find(params[:id])
-  end
 
-  def update
-    @story= Story.find(params[:id])
-    @story.update(story_params)
-    flash[:notice] = "Story was successfully updated."
-  end
 
   private
 

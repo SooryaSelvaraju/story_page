@@ -16,7 +16,7 @@ class ResponseCommentsController < ApplicationController
   def create
     @response_comment=ResponseComment.create(response_comment_params)
     flash[:notice]="Successfully created response comment."
-    redirect_to response_comment_path(@response_comment)
+    redirect_to stories_path
   end
 
   def edit

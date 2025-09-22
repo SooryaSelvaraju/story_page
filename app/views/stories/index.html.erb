@@ -1,9 +1,11 @@
-<%= link_to "Create Story", new_story_path %>
+<div class="button"><%= link_to "Create Story", new_story_path%></div>
 
 <h1>List of Posts</h1>
 <% @stories.each do |story| %>
-  <h3><%= story.title %></h3>
+  <h3><a href="<%= story.url %>" target=" _blank"><%= story['title'] %></a></h3>
+
   <h4><%= story.description %></h4>
-  <p>upvotes</p>
- <%= link_to "Show Comments", story_path(story)%>
+  <p>👍  <%=story.upvotes %> likes</p>
+ <div class="button"><%= link_to "Show Comments", story_path(story)%></div>
+
 <% end %>

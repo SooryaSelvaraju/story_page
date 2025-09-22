@@ -1,16 +1,18 @@
-<%= link_to "Home", stories_path %>
-<h1><%= @story.user %></h1>
+<div class="button"><%= link_to "Home", stories_path %></div>
+<h2>Comment Section</h2>
+<h2><%= @story.user %></h2>
 <h3><%= @story.title %></h3>
 <h5><%= @story.description %></h5>
-<%= link_to "Add Comments", new_comment_path(story_id: @story.id) %>
+<p>👍 <%= @story.upvotes %> likes</p>
+<%= link_to "✐ Add Comments", new_comment_path(story_id: @story.id) %>
 
 
 <div class="comment">
   <% @comments.each do |comment| %>
-    <h3>Id:<%= comment.id %> <%= comment.user %></h3>
+    <h2><%= comment.user %></h2>
     <h4><%= comment.content %></h4>
     <h5><%= comment.created_at %></h5>
-    <%= link_to "Add Responsive Comment", new_response_comment_path(comment_id: comment.id) %>
+    <%= link_to "✐ Add Responsive Comment", new_response_comment_path(comment_id: comment.id) %>
 
     <div class="response">
       <% response_comment = ResponseComment.where(comment_id: comment.id).order("created_at DESC") %>

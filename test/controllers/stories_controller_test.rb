@@ -20,7 +20,7 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get show" do
-    get story_path
+    get story_path(@user)
     assert_response :success
   end
 

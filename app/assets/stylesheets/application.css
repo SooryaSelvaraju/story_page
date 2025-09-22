@@ -23,4 +23,23 @@
     align-content: center;
     border-radius: 10px;
     color: wheat;
+
+    margin: 10px;
+}
+.form{
+    padding: 10px;
+    font-weight: bold;
+}
+.container{
+    background-color: wheat;
+    align-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 700px;
+    height: 400px;
+    text-align: center;
+}
+.post{
+    padding-left: 20px;
+
 }

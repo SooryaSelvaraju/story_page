@@ -15,12 +15,24 @@ class StoriesController < ApplicationController
   end
 
   def create
-
     @story = Story.create(story_params)
     flash[:notice] = "Story was successfully created."
     redirect_to story_path(@story)
   end
 
+  def edit
+    @story= Story.find(params[:id])
+  end
+
+  def update
+
+    @story= Story.find(params[:id])
+    like=(@story.upvotes.to_i || 0)+1
+    @story.update(upvotes: like)
+
+    flash[:notice] = "Story was successfully updated."
+    redirect_to story_path(@story)
+  end
 
 
   private

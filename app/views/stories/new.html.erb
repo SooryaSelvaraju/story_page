@@ -1,24 +1,29 @@
+
 <h1>Create Story</h1>
-<%= form_with model: @story, path: stories_path, method: :post do |f|%>
-  <div>
-    <label>Title</label>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <label>URL</label>
-    <%= f.text_field :url %>
-  </div>
-  <div>
-    <label>Description</label>
-    <%= f.text_field :description %>
-  </div>
-  <div>
-    <label>User Name</label>
-    <%= f.text_field :user %>
-  </div>
-  <div>
-    <lable>Likes</lable>
-    <%= f.select :upvotes, options_for_select([[0,0],[1,1]]) %>
-  </div>
-  <%= f.submit "Create Story" %>
-<% end %>
+<div class="button"><%= link_to "Home", stories_path %></div>
+
+<div class="container">
+  <%= form_with model: @story, path: stories_path, method: :post do |f| %>
+    <div class="form">
+      <label>Title: </label>
+      <%= f.text_field :title %>
+    </div>
+    <div class="form">
+      <label>URL: </label>
+      <%= f.text_field :url %>
+    </div>
+    <div class="form">
+      <label>Description: </label>
+      <%= f.text_field :description %>
+    </div>
+    <div class="form">
+      <label>User Name: </label>
+      <%= f.text_field :user %>
+    </div>
+    <div class="form">
+      <lable>Likes:</lable>
+      <%= f.select :upvotes, options_for_select([[0, 0], [1, 1]]) %>
+    </div>
+    <%= f.submit "Create Story", class: "button" %>
+  <% end %>
+</div>

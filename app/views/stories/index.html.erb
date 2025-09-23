@@ -13,10 +13,17 @@
      </div>
       <% story_id = story.id %>
       <% count = Comment.where(story_id: story_id).count  %>
-      <div class="comment"> <p><%= count %> Comments</p></div>
+      <% comments = Comment.where(story_id: story_id).pluck(:id) %>
+      <% comments.each do |id| %>
+        <% resposnsecoment= ResponseComment.where(comment_id: id).count %>
+        <% count= count+resposnsecoment %>
+      <% end %>
+      <%# comment_id= comments&.id%>
+      <%# resposnsecoment= ResponseComment.where(comment_id: comment_id).count %>
+
+      <div class="comment"> <p><%= count  %> Comments</p></div>
     </div>
 
     <div class="button"><%= link_to "Show Comments", story_path(story) %></div>
-
   <% end %>
 </div>

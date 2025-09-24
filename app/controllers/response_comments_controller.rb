@@ -15,6 +15,7 @@ class ResponseCommentsController < ApplicationController
 
   def create
 
+    response = ResponseComment.find(params[:response_id])
     @response_comment = ResponseComment.new(response_comment_params)
     if @response_comment.save
       flash[:notice] = "Successfully created response comment."
@@ -35,6 +36,6 @@ class ResponseCommentsController < ApplicationController
   private
 
   def response_comment_params
-    params.require(:response_comment).permit(:content, :user, :comment_id)
+    params.require(:response_comment).permit(:content, :user, :comment_id, :response_id)
   end
 end

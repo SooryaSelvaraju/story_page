@@ -12,9 +12,7 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     story = Story.find(params[:id])
     @comments = Comment.where(story_id: story.id).order("created_at DESC")
-    comments = Comment.where(story_id: story.id).first
-    @resposnsecoment= ResponseComment.where(comment_id: comments.id).count
-
+   
   end
 
   def create
